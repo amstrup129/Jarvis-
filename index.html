@@ -332,5 +332,44 @@ function jarvisListen() {
 }
 
 </script>
-</body>
+  <script>
+
+const buddyVoice = window.speechSynthesis;
+
+function buddySpeak(text) {
+
+  buddyVoice.cancel();
+
+  const message = new SpeechSynthesisUtterance(text);
+
+  message.lang = "da-DK";
+
+  message.pitch = 0.75;
+
+  message.rate = 0.9;
+
+  message.volume = 1;
+
+  const voices = buddyVoice.getVoices();
+
+  const danishVoice = voices.find(v => v.lang.startsWith("da"));
+
+  if (danishVoice) {
+
+    message.voice = danishVoice;
+
+  }
+
+  buddyVoice.speak(message);
+
+}
+
+function testBuddyVoice() {
+
+  buddySpeak("Goddag. Jeg er Buddy. Alle systemer er online. Hvad kan jeg hjælpe dig med?");
+
+}
+
+</script>
+e/body>
 </html>
