@@ -352,7 +352,9 @@ function buddySpeak(text) {
 
   const voices = buddyVoice.getVoices();
 
-  const danishVoice = voices.find(v => v.lang.startsWith("da"));
+  const danishVoice = voices.find(v => v.name.includes("Magnus")) 
+
+  || voices.find(v => v.lang.startsWith("da"));
 
   if (danishVoice) {
 
